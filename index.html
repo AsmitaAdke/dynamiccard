@@ -13,5 +13,50 @@
     <button onclick="addFriend()">Add Friend</button>
   </div>
     <div class="cards" id="cardsBox"></div>
+
+    
+  <script>
+    let friends = ["Aniket", "uddhav", "Ransh", "Sayali"];
+
+    function renderCards() {
+      const box = document.getElementById("cardsBox");
+      box.innerHTML = "";
+
+      friends.forEach((name, index) => {
+        const div = document.createElement("div");
+        div.className = "card";
+
+        const heading = document.createElement("h3");
+        heading.textContent = name;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "Remove";
+        removeBtn.className = "remove-btn";
+
+        removeBtn.onclick = function() {
+          friends.splice(index, 1);
+          renderCards();
+        };
+
+        div.appendChild(heading);
+        div.appendChild(removeBtn);
+        box.appendChild(div);
+      });
+    }
+
+    function addFriend() {
+      const input = document.getElementById("friendInput");
+      const newName = input.value.trim();
+
+      if (newName) {
+        friends.push(newName);
+        renderCards();
+        input.value = "";
+      }
+    }
+
+    renderCards();
+  </script>
+
 </body>
 </html>
