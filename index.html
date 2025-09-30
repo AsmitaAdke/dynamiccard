@@ -1,20 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Cards</title>
+  <meta charset="UTF-8">
+  <title>Dynamic Friend Cards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f6fb;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+    .controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .controls input {
+      padding: 8px;
+      width: 200px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    }
+    .controls button {
+      padding: 8px 12px;
+      margin-left: 5px;
+      border: none;
+      background: #3f51b5;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .controls button:hover {
+      background: #2c3e9e;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+    .card {
+      width: 170px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #3f51b5;
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      color: #444;
+    }
+    .remove-btn {
+      padding: 5px 10px;
+      border: none;
+      background: #e74c3c;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .remove-btn:hover {
+      background: #c0392b;
+    }
+  </style>
 </head>
 <body>
-    h1>Dynamic Friends List</h1>
 
-    <div class="controls">
+  <h1>Dynamic Friends List</h1>
+
+  <div class="controls">
     <input type="text" id="friendInput" placeholder="Enter friend's name">
     <button onclick="addFriend()">Add Friend</button>
   </div>
-    <div class="cards" id="cardsBox"></div>
 
-    
+  <div class="cards" id="cardsBox"></div>
+
   <script>
     let friends = ["Aniket", "uddhav", "Ransh", "Sayali"];
 
